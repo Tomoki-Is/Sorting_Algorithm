@@ -1,14 +1,12 @@
-#include<stdio.h>
-
-int Partition(int a[], int lo, int hi) {
+int Partition(int A[], int lo, int hi) {
     int i, j;
-    int pivot = a[hi];
+    int pivot = A[hi];
 
     if (lo == hi) return hi;
 
     i = lo;
     for (j = lo; j < hi; j++) {
-        if (a[j] <= pivot) {
+        if (A[j] <= pivot) {
             if (j != i) {
                 /*int temp = a[i];
                 a[i] = a[j];
@@ -25,6 +23,7 @@ int Partition(int a[], int lo, int hi) {
 
     return i;
 }
+
 void Qsort(int a[], int lo, int hi) {
     if (lo < hi) {
         int mid = Partition(a, lo, hi);
