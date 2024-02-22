@@ -1,4 +1,4 @@
-void insertion_sort(int a[], int n){
+void Insertion_sort(int a[], int n){
     for (int i = 1; i < n; i++){
         int j = i;
         int x = a[i];
