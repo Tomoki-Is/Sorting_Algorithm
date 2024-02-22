@@ -1,5 +1,4 @@
 void PushHeap(int T[], int* size, int x){
-    
     *size = *size + 1;
     T[*size] = x;
     int k = *size; 
@@ -11,7 +10,6 @@ void PushHeap(int T[], int* size, int x){
 }
 
 int DeleteMaxinum(int T[], int* size){
-
     int max, k, big;
     max = T[1];
     T[1] = T[*size];
@@ -42,4 +40,6 @@ int DeleteMaxinum(int T[], int* size){
     return max;
 }
 
- 
+void Heap_sort(int A[]){
+    return A;
+}
