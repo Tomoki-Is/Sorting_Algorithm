@@ -9,7 +9,7 @@ void PushHeap(int T[], int* size, int x){
     }
 }
 
-int DeleteMaxinum(int T[], int* size){
+int DeleteMaximum(int T[], int* size){
     int max, k, big;
     max = T[1];
     T[1] = T[*size];
@@ -40,6 +40,21 @@ int DeleteMaxinum(int T[], int* size){
     return max;
 }
 
-void Heap_sort(int A[]){
-    return A;
+void Heap_sort(int A[], int n){
+    int size = 0;
+    
+    // 一時的にヒープを格納する配列
+    int* tempHeap = (int*)malloc((n + 1) * sizeof(int));
+
+    // 配列の要素をヒープに追加
+    for(int i = 0; i < n; i++){
+        PushHeap(tempHeap, &size, A[i]);
+    }
+
+    // ヒープから最大値を削除しながら配列に格納していく
+    for(int i = n - 1; i >= 0; i--){
+        A[i] = DeleteMaximum(tempHeap, &size);
+    }
+
+    free(tempHeap); // メモリの解放
 }
