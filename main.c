@@ -19,7 +19,7 @@ int Input(void){
     printf("0 : Bubble sort\n");
     printf("1 : Heap sort\n");
     printf("2 : Insertion sort\n");
-    printf("3 :  sort\n");
+    printf("3 : Merge sort\n");
     printf("4 :  sort\n");
     printf("5 : Selection sort\n");
     printf("6 : Selection sort(recursive ver.)\n");
@@ -62,7 +62,7 @@ int main(void)
     int select = Input();
     Select_Sort(select);
 
-    long long int loop = 100; // ループ回数
+    long long int loop = 10; // ループ回数
     bool isPrint = false;
 
     clock_t start, end;
