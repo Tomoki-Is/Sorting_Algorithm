@@ -62,7 +62,7 @@ int main(void)
     int select = Input();
     Select_Sort(select);
 
-    long long int loop = 10; // ループ回数
+    long long int loop = 100000000; // ループ回数
     bool isPrint = false;
 
     clock_t start, end;
