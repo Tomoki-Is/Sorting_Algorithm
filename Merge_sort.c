@@ -30,12 +30,15 @@ void Merge(int A[], int left, int mid, int right){
     }
 }
 
-void merge_sort(int A[], int left, int right){
-    int mid = (left + right) / 2;
-    if (left < mid) MergeSort(A, left, mid); 
-    if (mid + 1 < right) MergeSort(A, mid + 1, right); 
+void Merge_sort(int A[]){
+    int right = sizeof(A) / sizeof(A[0]) - 1;
+    int left = 0;
 
-    Merge(A, left, mid, right); 
+    int mid = (left + right) / 2;
+    if (left < mid) Merge(A, left, mid); 
+    if (mid + 1 < right) Merge(A, mid + 1, right); 
+
+    MergeSort(A, left, mid, right); 
 } 
 
  
