@@ -1,7 +1,7 @@
 #include <string.h>
 
 void Merge(int A[], int left, int mid, int right){
-    int *M = (int *)malloc(sizeof(int) * right);
+    int *M = (int *)malloc(sizeof(int) * (right - left + 1));
     int x = left;
     int y = mid + 1;
 
@@ -24,10 +24,11 @@ void Merge(int A[], int left, int mid, int right){
         }
     }
 
-    // 配列Mをコピー
+    // 配列MをAにコピー
     for (int i = 0; i <= right - left; i++){
         A[left + i] = M[i];
     }
+    free(M); // メモリ解放
 }
 
 void divide(int A[], int left, int right){
@@ -42,5 +43,5 @@ void divide(int A[], int left, int right){
 }
 
 void Merge_sort(int A[], int n){
-    divide(A, 0, n);
+    divide(A, 0, n - 1);
 }
