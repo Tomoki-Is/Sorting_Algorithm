@@ -1,11 +1,12 @@
 #include<stdio.h>
 #include<string.h>
 #include<stdlib.h>
+#include<stdbool.h>
 #include<time.h>
 #include"Bubble_sort.c"
 #include"Heap_sort.c"
 #include"Insertion_sort.c"
-// #include"Merge_sort.c"
+#include"Merge_sort.c"
 // #include"Quick_sort.c"
 #include"Selection_sort.c"
 #include"Shell_sort.c"
@@ -39,9 +40,9 @@ void Select_Sort(int select){
     else if(select == 2){
       Sort=&Insertion_sort;
     }
-    // else if(select == 3){
-    //   Sort=&Merge_sort;
-    // }
+    else if(select == 3){
+      Sort=&Merge_sort;
+    }
     // else if(select == 4){
     //   Sort=&Quick_sort;
     // }
@@ -61,22 +62,27 @@ int main(void)
     int select = Input();
     Select_Sort(select);
 
+    long long int loop = 100; // ループ回数
+    bool isPrint = false;
+
     clock_t start, end;
     start = clock();
 
-    long long int loop = 10; // ループ回数
-
     for(int i = 0; i < loop; i++){
 
-      int A[] = {4, 6, 7, 2, 1, 8, 9, 3, 5};
+      int A[] = {4, 6, 7, 2, 1, 8, 9, 3, 5, 0};
       int n = sizeof(A) / sizeof(A[0]); // 配列長の取得
-      
+
       Sort(A, n);
 
-      for(int j = 0; j < n; j++){
-        printf("%d ", A[j]);
-      }
-      printf("\n");
+      if (!isPrint){
+        for (int j = 0; j < n; j++)
+        {
+          printf("%d ", A[j]);
+        }
+        printf("\n");
+        isPrint = true;
+    }
     }
 
     end = clock();

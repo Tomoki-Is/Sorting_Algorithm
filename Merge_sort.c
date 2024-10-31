@@ -1,44 +1,46 @@
 #include <string.h>
 
 void Merge(int A[], int left, int mid, int right){
-    int* M = (int*)malloc(sizeof(int) * (sizeof A / sizeof A[0]));
+    int *M = (int *)malloc(sizeof(int) * right);
     int x = left;
     int y = mid + 1;
 
-    for (int i = 0; i <= right - left; i++){ 
+    for (int i = 0; i <= right - left; i++){
         if (x == mid + 1){
-            M[i] = A[y]; 
-            y++; 
-        } 
-        else if (y == right + 1){ 
-            M[i] = A[x]; 
-            x++; 
+            M[i] = A[y];
+            y++;
+        }
+        else if (y == right + 1){
+            M[i] = A[x];
+            x++;
         }
         else if (A[x] <= A[y]){
             M[i] = A[x];
             x++;
-        } 
+        }
         else{
             M[i] = A[y];
             y++;
         }
-    } 
+    }
 
-    // 配列Mをコピー 
-    for (int i = 0; i <= right - left; i++){ 
-        A[left + i] = M[i]; 
+    // 配列Mをコピー
+    for (int i = 0; i <= right - left; i++){
+        A[left + i] = M[i];
     }
 }
 
-void Merge_sort(int A[]){
-    int right = sizeof(A) / sizeof(A[0]) - 1;
-    int left = 0;
-
+void divide(int A[], int left, int right){
     int mid = (left + right) / 2;
-    if (left < mid) Merge(A, left, mid); 
-    if (mid + 1 < right) Merge(A, mid + 1, right); 
+    if (left < mid)
+        divide(A, left, mid);
+    if (mid + 1 < right)
+        divide(A, mid + 1, right);
 
-    MergeSort(A, left, mid, right); 
-} 
+    // 統治
+    Merge(A, left, mid, right);
+}
 
- 
+void Merge_sort(int A[], int n){
+    divide(A, 0, n);
+}
