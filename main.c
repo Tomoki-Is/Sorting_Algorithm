@@ -3,13 +3,13 @@
 #include<stdlib.h>
 #include<stdbool.h>
 #include<time.h>
-#include"Bubble_sort.c"
-#include"Heap_sort.c"
-#include"Insertion_sort.c"
-#include"Merge_sort.c"
-// #include"Quick_sort.c"
-#include"Selection_sort.c"
-#include"Shell_sort.c"
+#include"sort/Bubble_sort.c"
+#include"sort/Heap_sort.c"
+#include"sort/Insertion_sort.c"
+#include"sort/Merge_sort.c"
+// #include"sort/Quick_sort.c"
+#include"sort/Selection_sort.c"
+#include"sort/Shell_sort.c"
 
 typedef void (*Func)(int list[], int n);
 Func Sort;
@@ -20,7 +20,7 @@ int Input(void){
     printf("1 : Heap sort\n");
     printf("2 : Insertion sort\n");
     printf("3 : Merge sort\n");
-    printf("4 :  sort\n");
+    // printf("4 :  sort\n");
     printf("5 : Selection sort\n");
     printf("6 : Selection sort(recursive ver.)\n");
     printf("7 : Shell sort\n");
@@ -32,27 +32,35 @@ int Input(void){
 
 void Select_Sort(int select){
     if(select == 0){
+      printf("Bubble sort\n");
       Sort=&Bubble_sort;
     }
     else if(select == 1){
+      printf("Heap sort\n");
       Sort=&Heap_sort;
     }
     else if(select == 2){
+      printf("Insertion sort\n");
       Sort=&Insertion_sort;
     }
     else if(select == 3){
+      printf("Merge sort\n");
       Sort=&Merge_sort;
     }
     // else if(select == 4){
+    //   printf("sort\n");
     //   Sort=&Quick_sort;
     // }
     else if(select == 5){
+      printf("Selection sort\n");
       Sort=&Selection_sort;
     }
     else if(select == 6){
+      printf("Selection sort(recursive ver.)\n");
       Sort=&RecursiveSelection_sort;
     }
     else if(select == 7){
+      printf("Shell sort\n");
       Sort=&Shell_sort;
     }
 }
